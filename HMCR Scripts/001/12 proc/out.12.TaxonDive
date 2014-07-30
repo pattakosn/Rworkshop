@@ -1,0 +1,160 @@
+COMM.RANK = 0
+[1] "Full program execution time for each processor"
+COMM.RANK = 0
+   user  system elapsed 
+  1.881   0.122   2.088 
+COMM.RANK = 1
+   user  system elapsed 
+  1.887   0.114   2.086 
+COMM.RANK = 2
+   user  system elapsed 
+  1.882   0.118   2.085 
+COMM.RANK = 3
+   user  system elapsed 
+  1.891   0.110   2.085 
+COMM.RANK = 4
+   user  system elapsed 
+  1.878   0.122   2.085 
+COMM.RANK = 5
+   user  system elapsed 
+  1.889   0.111   2.084 
+COMM.RANK = 6
+   user  system elapsed 
+  1.867   0.111   2.081 
+COMM.RANK = 7
+   user  system elapsed 
+  1.882   0.114   2.082 
+COMM.RANK = 8
+   user  system elapsed 
+  1.873   0.122   2.080 
+COMM.RANK = 9
+   user  system elapsed 
+  1.886   0.107   2.080 
+COMM.RANK = 10
+   user  system elapsed 
+  1.889   0.107   2.080 
+COMM.RANK = 11
+   user  system elapsed 
+  1.888   0.106   2.080 
+COMM.RANK = 0
+[1] "Dimension of the biggest matrix needed during calculation and distributed among the processors"
+COMM.RANK = 0
+[1]  141 1687
+COMM.RANK = 1
+[1]  141 1687
+COMM.RANK = 2
+[1]  141 1687
+COMM.RANK = 3
+[1]  141 1687
+COMM.RANK = 4
+[1]  141 1687
+COMM.RANK = 5
+[1]  141 1687
+COMM.RANK = 6
+[1]  141 1687
+COMM.RANK = 7
+[1]  141 1687
+COMM.RANK = 8
+[1]  141 1687
+COMM.RANK = 9
+[1]  141 1687
+COMM.RANK = 10
+[1]  141 1687
+COMM.RANK = 11
+[1]  136 1687
+COMM.RANK = 0
+[1] "Size of the biggest matrix needed during calculation and distributed among the processors (Mb)"
+COMM.RANK = 0
+1.98336067137135 bytes
+COMM.RANK = 1
+1.8149303833683 bytes
+COMM.RANK = 2
+1.8149303833683 bytes
+COMM.RANK = 3
+1.8149303833683 bytes
+COMM.RANK = 4
+1.8149303833683 bytes
+COMM.RANK = 5
+1.8149303833683 bytes
+COMM.RANK = 6
+1.8149303833683 bytes
+COMM.RANK = 7
+1.8149303833683 bytes
+COMM.RANK = 8
+1.8149303833683 bytes
+COMM.RANK = 9
+1.8149303833683 bytes
+COMM.RANK = 10
+1.8149303833683 bytes
+COMM.RANK = 11
+1.75057791340835 bytes
+COMM.RANK = 0
+[1] "Taxondive values (gathered in processor 0)"
+COMM.RANK = 0
+$Species
+ V2  V3  V4  V5  V6  V7  V8  V9 V10 V11 V12 V13 V14 V15 V16 V17 V18 V19 V20 V21 
+ 23  24 695   2   7   0   0 171 215   0   0  25   5   0   0 215   0  72  89 144 
+
+COMM.RANK = 0
+$D
+      V2       V3       V4       V5       V6       V7       V8       V9 
+49.63429 58.37475 64.23828 58.33929 48.35676      NaN      NaN 47.36852 
+     V10      V11      V12      V13      V14      V15      V16      V17 
+56.32055      NaN      NaN 62.05410 26.29130      NaN      NaN 63.14702 
+     V18      V19      V20      V21 
+     NaN 42.99935 53.29768 58.57637 
+
+COMM.RANK = 0
+$Dstar
+ [1] 49.63429 58.37475 64.23828 58.33929 48.35676      NaN      NaN 47.36852
+ [9] 56.32055      NaN      NaN 62.05410 26.29130      NaN      NaN 63.14702
+[17]      NaN 42.99935 53.29768 58.57637
+
+COMM.RANK = 0
+$Lambda
+        V2         V3         V4         V5         V6         V7         V8 
+498.473389 422.798981 232.119461   0.000000 341.659294        NaN        NaN 
+        V9        V10        V11        V12        V13        V14        V15 
+139.574582 317.950366        NaN        NaN 448.788014   5.901193        NaN 
+       V16        V17        V18        V19        V20        V21 
+       NaN 425.968107        NaN 268.312374 628.223198 312.171146 
+
+COMM.RANK = 0
+$Dplus
+      V2       V3       V4       V5       V6       V7       V8       V9 
+49.63429 58.37475 64.23828 58.33929 48.35676      NaN      NaN 47.36852 
+     V10      V11      V12      V13      V14      V15      V16      V17 
+56.32055      NaN      NaN 62.05410 26.29130      NaN      NaN 63.14702 
+     V18      V19      V20      V21 
+     NaN 42.99935 53.29768 58.57637 
+
+COMM.RANK = 0
+$sd.Dplus
+        V2         V3         V4         V5         V6         V7         V8 
+ 2.4847969  2.4234185  0.3213352 17.5900748  5.3919744        NaN        NaN 
+        V9        V10        V11        V12        V13        V14        V15 
+ 0.8080691  0.7083958        NaN        NaN  2.3662375  7.0021763        NaN 
+       V16        V17        V18        V19        V20        V21 
+       NaN  0.7083958        NaN  1.3063027  1.1625491  0.8903558 
+
+COMM.RANK = 0
+$SDplus
+        V2         V3         V4         V5         V6         V7         V8 
+ 1141.5886  1400.9939 44645.6064   116.6786   338.4974        NaN        NaN 
+        V9        V10        V11        V12        V13        V14        V15 
+ 8100.0177 12108.9177        NaN        NaN  1551.3525   131.4565        NaN 
+       V16        V17        V18        V19        V20        V21 
+       NaN 13576.6103        NaN  3095.9530  4743.4939  8434.9979 
+
+COMM.RANK = 0
+$ED
+[1] Inf
+
+COMM.RANK = 0
+$EDstar
+[1] 91.53763
+
+COMM.RANK = 0
+$EDplus
+[1] 91.53763
+

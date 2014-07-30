@@ -1,0 +1,66 @@
+Using 4x3 for the default grid size
+
+COMM.RANK = 1
+   user  system elapsed 
+  4.466   0.287   4.925 
+COMM.RANK = 2
+   user  system elapsed 
+  4.458   0.297   4.924 
+COMM.RANK = 3
+   user  system elapsed 
+  4.471   0.283   4.925 
+COMM.RANK = 4
+   user  system elapsed 
+  4.437   0.317   4.925 
+COMM.RANK = 5
+   user  system elapsed 
+  4.440   0.313   4.926 
+COMM.RANK = 6
+   user  system elapsed 
+  4.467   0.290   4.926 
+COMM.RANK = 7
+   user  system elapsed 
+  4.446   0.312   4.927 
+COMM.RANK = 8
+   user  system elapsed 
+  4.485   0.274   4.928 
+COMM.RANK = 9
+   user  system elapsed 
+  4.439   0.321   4.928 
+COMM.RANK = 10
+   user  system elapsed 
+  4.433   0.326   4.929 
+COMM.RANK = 11
+   user  system elapsed 
+  4.442   0.316   4.929 
+COMM.RANK = 1
+COMM.RANK = 0
+[1] "Full program execution time for each processor"
+COMM.RANK = 0
+   user  system elapsed 
+  4.382   0.324   4.923 
+COMM.RANK = 0
+[1] "Size of the matrix stored in each processor (Mb)"
+COMM.RANK = 0
+1.82580202174328 bytes
+1.82256723250048 bytes
+COMM.RANK = 2
+1.81286286477208 bytes
+COMM.RANK = 3
+1.82149914171276 bytes
+COMM.RANK = 4
+1.81827198168987 bytes
+COMM.RANK = 5
+1.80859050162121 bytes
+COMM.RANK = 6
+1.80859050162121 bytes
+COMM.RANK = 7
+1.80538622925806 bytes
+COMM.RANK = 8
+1.79577341216861 bytes
+COMM.RANK = 9
+1.80859050162121 bytes
+COMM.RANK = 10
+1.80538622925806 bytes
+COMM.RANK = 11
+1.79577341216861 bytes

@@ -1,0 +1,18 @@
+COMM.RANK = 0
+[1] "Time for each processor to perform the main calculation loop"
+COMM.RANK = 0
+   user  system elapsed 
+  2.268   0.164   4.279 
+COMM.RANK = 0
+[1] "Full program execution time for each processor"
+COMM.RANK = 0
+   user  system elapsed 
+  2.651   0.282   4.861 
+COMM.RANK = 0
+[1] "Dimension of the matrix stored in each processor"
+COMM.RANK = 0
+[1] 1687 1687
+COMM.RANK = 0
+[1] "Size of the matrix stored in each processor (Mb)"
+COMM.RANK = 0
+21.7127140949838 bytes
