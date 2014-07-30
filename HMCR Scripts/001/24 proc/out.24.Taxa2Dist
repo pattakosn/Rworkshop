@@ -1,0 +1,126 @@
+Using 6x4 for the default grid size
+
+COMM.RANK = 0
+[1] "Full program execution time for each processor"
+COMM.RANK = 0
+   user  system elapsed 
+  4.274   0.419   4.832 
+COMM.RANK = 1
+   user  system elapsed 
+  4.315   0.368   4.834 
+COMM.RANK = 2
+   user  system elapsed 
+  4.264   0.412   4.834 
+COMM.RANK = 3
+   user  system elapsed 
+  4.265   0.369   4.834 
+COMM.RANK = 4
+   user  system elapsed 
+  4.223   0.460   4.836 
+COMM.RANK = 5
+   user  system elapsed 
+  4.205   0.480   4.836 
+COMM.RANK = 6
+   user  system elapsed 
+  4.312   0.376   4.837 
+COMM.RANK = 7
+   user  system elapsed 
+  4.316   0.370   4.837 
+COMM.RANK = 8
+   user  system elapsed 
+  4.263   0.427   4.838 
+COMM.RANK = 9
+   user  system elapsed 
+  4.266   0.420   4.838 
+COMM.RANK = 10
+   user  system elapsed 
+  4.223   0.466   4.839 
+COMM.RANK = 11
+   user  system elapsed 
+  4.221   0.468   4.840 
+COMM.RANK = 12
+   user  system elapsed 
+  4.288   0.374   4.859 
+COMM.RANK = 13
+   user  system elapsed 
+  4.315   0.395   4.860 
+COMM.RANK = 14
+   user  system elapsed 
+  4.319   0.391   4.860 
+COMM.RANK = 15
+   user  system elapsed 
+  4.294   0.417   4.861 
+COMM.RANK = 16
+   user  system elapsed 
+  4.220   0.488   4.862 
+COMM.RANK = 17
+   user  system elapsed 
+  4.240   0.468   4.862 
+COMM.RANK = 18
+   user  system elapsed 
+  4.325   0.389   4.863 
+COMM.RANK = 19
+   user  system elapsed 
+  4.327   0.387   4.863 
+COMM.RANK = 20
+   user  system elapsed 
+  4.344   0.366   4.862 
+COMM.RANK = 21
+   user  system elapsed 
+  4.320   0.395   4.863 
+COMM.RANK = 22
+   user  system elapsed 
+  4.307   0.407   4.864 
+COMM.RANK = 23
+   user  system elapsed 
+  4.296   0.420   4.865 
+COMM.RANK = 0
+[1] "Size of the matrix stored in each processor (Mb)"
+COMM.RANK = 0
+0.920061033759298 bytes
+COMM.RANK = 1
+0.917894335304215 bytes
+COMM.RANK = 2
+0.911394239938966 bytes
+COMM.RANK = 3
+0.911394239938966 bytes
+COMM.RANK = 4
+0.916826244516498 bytes
+COMM.RANK = 5
+0.914667175281327 bytes
+COMM.RANK = 6
+0.908189967575815 bytes
+COMM.RANK = 7
+0.908189967575815 bytes
+COMM.RANK = 8
+0.907121876788098 bytes
+COMM.RANK = 9
+0.904985695212664 bytes
+COMM.RANK = 10
+0.898577150486363 bytes
+COMM.RANK = 11
+0.898577150486363 bytes
+COMM.RANK = 12
+0.907121876788098 bytes
+COMM.RANK = 13
+0.904985695212664 bytes
+COMM.RANK = 14
+0.898577150486363 bytes
+COMM.RANK = 15
+0.898577150486363 bytes
+COMM.RANK = 16
+0.907121876788098 bytes
+COMM.RANK = 17
+0.904985695212664 bytes
+COMM.RANK = 18
+0.898577150486363 bytes
+COMM.RANK = 19
+0.898577150486363 bytes
+COMM.RANK = 20
+0.907121876788098 bytes
+COMM.RANK = 21
+0.904985695212664 bytes
+COMM.RANK = 22
+0.898577150486363 bytes
+COMM.RANK = 23
+0.898577150486363 bytes

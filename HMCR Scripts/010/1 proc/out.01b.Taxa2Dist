@@ -1,0 +1,11 @@
+Using 1x1 for the default grid size
+
+COMM.RANK = 0
+[1] "Full program execution time for each processor"
+COMM.RANK = 0
+    user   system  elapsed 
+ 231.220   73.679 1218.759 
+COMM.RANK = 0
+[1] "Size of the matrix stored in each processor (Mb)"
+COMM.RANK = 0
+2177.17818043105 bytes

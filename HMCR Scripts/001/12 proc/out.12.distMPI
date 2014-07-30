@@ -1,0 +1,128 @@
+COMM.RANK = 0
+[1] "Time for each processor to perform the main calculation loop"
+COMM.RANK = 0
+   user  system elapsed 
+  0.751   0.008   0.759 
+COMM.RANK = 1
+   user  system elapsed 
+  0.752   0.006   0.758 
+COMM.RANK = 2
+   user  system elapsed 
+  0.752   0.007   0.759 
+COMM.RANK = 3
+   user  system elapsed 
+  0.753   0.005   0.759 
+COMM.RANK = 4
+   user  system elapsed 
+  0.754   0.006   0.761 
+COMM.RANK = 5
+   user  system elapsed 
+  0.756   0.005   0.761 
+COMM.RANK = 6
+   user  system elapsed 
+  0.758   0.004   0.761 
+COMM.RANK = 7
+   user  system elapsed 
+  0.753   0.008   0.761 
+COMM.RANK = 8
+   user  system elapsed 
+  0.756   0.007   0.763 
+COMM.RANK = 9
+   user  system elapsed 
+  0.760   0.003   0.763 
+COMM.RANK = 10
+   user  system elapsed 
+  0.759   0.004   0.763 
+COMM.RANK = 11
+   user  system elapsed 
+  0.751   0.005   0.764 
+COMM.RANK = 0
+[1] "Full program execution time for each processor"
+COMM.RANK = 0
+   user  system elapsed 
+  1.271   0.121   1.478 
+COMM.RANK = 1
+   user  system elapsed 
+  1.273   0.116   1.475 
+COMM.RANK = 2
+   user  system elapsed 
+  1.275   0.113   1.474 
+COMM.RANK = 3
+   user  system elapsed 
+  1.270   0.115   1.473 
+COMM.RANK = 4
+   user  system elapsed 
+  1.276   0.111   1.474 
+COMM.RANK = 5
+   user  system elapsed 
+  1.273   0.113   1.473 
+COMM.RANK = 6
+   user  system elapsed 
+  1.274   0.112   1.471 
+COMM.RANK = 7
+   user  system elapsed 
+  1.267   0.119   1.470 
+COMM.RANK = 8
+   user  system elapsed 
+  1.273   0.113   1.471 
+COMM.RANK = 9
+   user  system elapsed 
+  1.272   0.111   1.466 
+COMM.RANK = 10
+   user  system elapsed 
+  1.282   0.101   1.467 
+COMM.RANK = 11
+   user  system elapsed 
+  1.266   0.105   1.467 
+COMM.RANK = 0
+[1] "Dimension of the matrix stored in each processor"
+COMM.RANK = 0
+[1]  141 1687
+COMM.RANK = 1
+[1]  141 1687
+COMM.RANK = 2
+[1]  141 1687
+COMM.RANK = 3
+[1]  141 1687
+COMM.RANK = 4
+[1]  141 1687
+COMM.RANK = 5
+[1]  141 1687
+COMM.RANK = 6
+[1]  141 1687
+COMM.RANK = 7
+[1]  141 1687
+COMM.RANK = 8
+[1]  141 1687
+COMM.RANK = 9
+[1]  141 1687
+COMM.RANK = 10
+[1]  141 1687
+COMM.RANK = 11
+[1]  136 1687
+COMM.RANK = 0
+[1] "Size of the matrix stored in each processor (Mb)"
+COMM.RANK = 0
+1.8149303833683 bytes
+COMM.RANK = 1
+1.8149303833683 bytes
+COMM.RANK = 2
+1.8149303833683 bytes
+COMM.RANK = 3
+1.8149303833683 bytes
+COMM.RANK = 4
+1.8149303833683 bytes
+COMM.RANK = 5
+1.8149303833683 bytes
+COMM.RANK = 6
+1.8149303833683 bytes
+COMM.RANK = 7
+1.8149303833683 bytes
+COMM.RANK = 8
+1.8149303833683 bytes
+COMM.RANK = 9
+1.8149303833683 bytes
+COMM.RANK = 10
+1.8149303833683 bytes
+COMM.RANK = 11
+1.75057791340835 bytes
