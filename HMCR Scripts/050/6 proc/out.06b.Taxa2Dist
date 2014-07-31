@@ -1,0 +1,21 @@
+Using 3x2 for the default grid size
+
+-------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code.. Per user-direction, the job has been aborted.
+-------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: A process refused to die despite all the efforts!
+This process may still be running and/or consuming resources.
+
+Host: biocluster
+PID:  30202
+
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpiexec detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[46634,1],4]
+  Exit code:    1
+--------------------------------------------------------------------------
