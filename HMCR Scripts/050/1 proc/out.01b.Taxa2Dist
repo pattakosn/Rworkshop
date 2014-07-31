@@ -1,0 +1,5 @@
+Using 1x1 for the default grid size
+
+--------------------------------------------------------------------------
+mpiexec noticed that process rank 0 with PID 22913 on node biocluster exited on signal 9 (Killed).
+--------------------------------------------------------------------------

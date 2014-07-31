@@ -1,0 +1,68 @@
+COMM.RANK = 0
+[1] "Time for each processor to perform the main calculation loop"
+COMM.RANK = 0
+    user   system  elapsed 
+ 705.282  251.925 1004.632 
+COMM.RANK = 1
+COMM.RANK = 2
+    user   system  elapsed 
+ 718.574  243.743 1004.584 
+    user   system  elapsed 
+ 707.817  250.476 1004.602 
+COMM.RANK = 3
+    user   system  elapsed 
+ 712.127  247.283 1004.616 
+COMM.RANK = 4
+    user   system  elapsed 
+ 715.511  249.807 1004.634 
+COMM.RANK = 5
+    user   system  elapsed 
+ 708.678  251.254 1004.649 
+COMM.RANK = 0
+[1] "Full program execution time for each processor"
+COMM.RANK = 0
+    user   system  elapsed 
+ 707.023  252.040 1007.589 
+COMM.RANK = 1
+    user   system  elapsed 
+ 720.436  243.849 1007.589 
+COMM.RANK = 2
+    user   system  elapsed 
+ 709.678  250.574 1007.590 
+COMM.RANK = 3
+    user   system  elapsed 
+ 713.967  247.380 1007.590 
+COMM.RANK = 4
+    user   system  elapsed 
+ 717.325  249.915 1007.590 
+COMM.RANK = 5
+    user   system  elapsed 
+ 710.493  251.353 1007.591 
+COMM.RANK = 0
+[1] "Dimension of the matrix stored in each processor"
+COMM.RANK = 0
+[1] 14078 84465
+COMM.RANK = 1
+[1] 14078 84465
+COMM.RANK = 2
+[1] 14078 84465
+COMM.RANK = 3
+[1] 14078 84465
+COMM.RANK = 4
+[1] 14078 84465
+COMM.RANK = 5
+[1] 14075 84465
+COMM.RANK = 0
+[1] "Size of the matrix stored in each processor (Mb)"
+COMM.RANK = 0
+9071.89238985314 bytes
+COMM.RANK = 1
+9071.89238985314 bytes
+COMM.RANK = 2
+9071.89238985314 bytes
+COMM.RANK = 3
+9071.89238985314 bytes
+COMM.RANK = 4
+9071.89238985314 bytes
+COMM.RANK = 5
+9069.95918367347 bytes

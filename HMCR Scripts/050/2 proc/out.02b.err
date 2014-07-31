@@ -1,0 +1,52 @@
+Loading required package: permute
+Loading required package: permute
+Loading required package: lattice
+Loading required package: lattice
+This is vegan 2.0-10
+This is vegan 2.0-10
+Warning messages:
+1: package ‘rlecuyer’ was built under R version 3.0.2 
+2: package ‘pbdMPI’ was built under R version 3.0.2 
+Warning messages:
+1: package ‘rlecuyer’ was built under R version 3.0.2 
+2: package ‘pbdMPI’ was built under R version 3.0.2 
+Error: cannot allocate vector of size 26.6 Gb
+Execution halted
+Error: cannot allocate vector of size 26.6 Gb
+Execution halted
+Warning messages:
+1: package ‘pbdMPI’ was built under R version 3.0.2 
+2: package ‘rlecuyer’ was built under R version 3.0.2 
+Warning messages:
+1: package ‘pbdMPI’ was built under R version 3.0.2 
+2: package ‘rlecuyer’ was built under R version 3.0.2 
+Loading required package: permute
+Loading required package: permute
+Loading required package: lattice
+Loading required package: lattice
+This is vegan 2.0-10
+This is vegan 2.0-10
+Error: cannot allocate vector of size 13.3 Gb
+Execution halted
+Error: cannot allocate vector of size 13.3 Gb
+Execution halted
+Warning messages:
+1: package ‘pbdMPI’ was built under R version 3.0.2 
+2: package ‘rlecuyer’ was built under R version 3.0.2 
+Loading required package: permute
+Warning messages:
+1: package ‘pbdMPI’ was built under R version 3.0.2 
+2: package ‘rlecuyer’ was built under R version 3.0.2 
+Loading required package: permute
+Loading required package: lattice
+Loading required package: lattice
+This is vegan 2.0-10
+This is vegan 2.0-10
+Error in Ops.factor(X, Y, ...) : 
+  long vectors not supported yet: memory.c:1569
+Calls: outer -> Ops.factor
+Execution halted
+Error in Ops.factor(X, Y, ...) : 
+  long vectors not supported yet: memory.c:1569
+Calls: outer -> Ops.factor
+Execution halted
