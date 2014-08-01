@@ -228,7 +228,3 @@ comb <- t(combnPrim(1:50000, 2, simplify = T))
 
 head(r)
 
-rm(comb)
-gc()
-s
-y1
