@@ -6,6 +6,7 @@
 
 library(vegan) # for vegdist and metaMDS
 library(reshape2) # for the cast functions
+
 curdir <- "/home/evberghe/workspace/r_scratch/vegan"
 list.files(curdir)
 
@@ -29,12 +30,12 @@ df_all <- df_all[df_all$count!=0,]
 
 # subsample on the basais of factor levels for taxa and samples
 nt <- length(levels(df_all$taxon)); # number of taxa in dataset 
-st <- 500; # desired number of taxa in the subsample
+st <- 1000; # desired number of taxa in the subsample
 		   # actual number will be smaller, as some species will be disappearing
 		   # by demoving all samples in which they occur 
 tt <- levels(df_all$taxon)[sample.int(nt, st)] # taxa to be included
 ns <- length(levels(df_all$sample)); # same as for taxa...
-ss <- 500; 
+ss <- 1000; 
 ts <- levels(df_all$sample)[sample.int(ns, ss)]
 df <- df_all[df_all$taxon %in% tt & df_all$sample %in% ts, ]
 
@@ -50,6 +51,13 @@ ar <- acast(df, sample~taxon, sum, value.var="count")
 # edit(ar)
 
 #run the stuff, and profile
+Rprof(paste(curdir, "vegdistprof", sep="/"), interval=0.01)
 nsbp_dist_bray <- vegdist(ar)
+Rprof(NULL)
+Rprof(paste(curdir, "mdsprof", sep="/"), interval=0.01)
 nsbp_mds_bray <- metaMDS(nsbp_dist_bray)
+Rprof(NULL)
+
+summaryRprof(paste(curdir, "vegdistprof", sep="/"))
+summaryRprof(paste(curdir, "mdsprof", sep="/"))
 
