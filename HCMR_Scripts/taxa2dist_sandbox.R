@@ -72,7 +72,11 @@ check <- TRUE
     y3 <- cbind(y,y1,y2)
 
 
-
+  # Transform it into a triangular matrix, when needed:
+  df <- cbind(comb,y2)
+  df <- as.data.frame(df)
+  zmat <- with(df, matrix(-1, ncol=max(V2), nrow=1+max(V1) ))
+  zmat[with(df, cbind(V1,V2)) ] <- with(df, y2)
 
 
 

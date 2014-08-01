@@ -1,0 +1,18 @@
+  # Create all pairs to be compared
+  comb <- t(combnPrim(1:nrow(x),2, simplify = T))
+  #Define the function we will use for the outer product
+  FUN <- match.fun("!=")
+  #Get first part of the list
+  y <- x[comb[,1],1]
+  #Get second part of the list
+  y1 <- x[comb[,2],1]
+  #Find identical
+  y2 <- FUN(y,y1)
+  #Get results
+  y3 <- cbind(y,y1,y2)
+  
+  # Transform it into a triangular matrix:
+  df <- cbind(comb,y2)
+  df <- as.data.frame(df)
+  zmat <- with(df, matrix(-1, ncol=max(V2), nrow=1+max(V1) ))
+  zmat[with(df, cbind(V1,V2)) ] <- with(df, y2)
