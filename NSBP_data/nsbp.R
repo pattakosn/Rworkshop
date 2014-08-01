@@ -27,11 +27,17 @@ df_all$count[(df_all$count>0 & df_all$count<=0.5) | df_all$count==-1] <- 1
 df_all$count <- round(df_all$count)
 df_all <- df_all[df_all$count!=0,]
 
-# subsample
-totrecs <- length(df_all$id)
-subsamplesize <- 10000
-subsample <- sample.int(totrecs, subsamplesize)
-df <- df_all[subsample, ]
+# subsample on the basais of factor levels for taxa and samples
+nt <- length(levels(df_all$taxon)); # number of taxa in dataset 
+st <- 500; # desired number of taxa in the subsample
+		   # actual number will be smaller, as some species will be disappearing
+		   # by demoving all samples in which they occur 
+tt <- levels(df_all$taxon)[sample.int(nt, st)] # taxa to be included
+ns <- length(levels(df_all$sample)); # same as for taxa...
+ss <- 500; 
+ts <- levels(df_all$sample)[sample.int(ns, ss)]
+df <- df_all[df_all$taxon %in% tt & df_all$sample %in% ts, ]
+
 # 'sample' and 'taxon' are factors; subsampling will have caused some factor levels
 # to be present in the factor object, but not in the data
 # reapply factor() to drop unused factor levels
@@ -43,7 +49,7 @@ ar <- acast(df, sample~taxon, sum, value.var="count")
 # look at the resulting data table in a pop-up grid
 # edit(ar)
 
-#run the stuff
+#run the stuff, and profile
 nsbp_dist_bray <- vegdist(ar)
 nsbp_mds_bray <- metaMDS(nsbp_dist_bray)
 
