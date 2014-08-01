@@ -116,7 +116,11 @@ x <- as.data.frame(otu_tbl, stringAsFactors=F)
 rownames(x) <- x[,1]
 x <- x[,-1]
 
-
+  # Transform it into a triangular matrix, when needed:
+  df <- cbind(comb,y2)
+  df <- as.data.frame(df)
+  zmat <- with(df, matrix(-1, ncol=max(V2), nrow=1+max(V1) ))
+  zmat[with(df, cbind(V1,V2)) ] <- with(df, y2)
 
 dbDisconnect(con)
 
