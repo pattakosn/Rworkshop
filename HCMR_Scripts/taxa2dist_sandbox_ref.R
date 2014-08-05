@@ -5,6 +5,7 @@ library(doMC)
 library(RPostgreSQL)
 library(dplyr)
 
+#Read file
 x <- read.table(file="/Users/ufo/Dropbox/LW_hackaton/vegan/HMCR\ Scripts/050/aggSpecies_Percent.csv", sep = ",", quote = '"', header =T, row.names =1)
 
 #Read file
