@@ -7,25 +7,41 @@ library(dplyr)
 
 x <- read.table(file="/Users/ufo/Dropbox/LW_hackaton/vegan/HMCR\ Scripts/050/aggSpecies_Percent.csv", sep = ",", quote = '"', header =T, row.names =1)
 
+#Read file
+#x <- read.table(file="/megx/exchange/antonio/tmp/Rworkshop/HCMR_Scripts/050/aggSpecies_Percent.csv", sep = ",", quote = '"', header =T, row.names =1, stringsAsFactors = F)
 
 
+#Create DB connection
 drv <- dbDriver("PostgreSQL")
 con <- dbConnect(drv, dbname="test_r")
+
+#List DB connections
 dbListConnections(drv)
+
+#Set search path to the SCHEMA
 dbSendQuery(con,"SET SEARCH_PATH TO vegan_test;")
+
+#Example of how to send a query
 dbSendQuery(con, "DROP TABLE otu_test;")
 
+#Write data to DB
 dbWriteTable(con,"otu_test",as.data.frame(x))
 
 #Example how to create an index
 dbSendQuery(con, 'CREATE INDEX ix_family ON otu_test USING btree ("Family");')
+
+#Count how many rows there are in the new created table in the DB
 q <- fetch(dbSendQuery(con,"SELECT count(*) FROM otu_test;"))
+
+#Disconnect from DB
 dbDisconnect(con)
 
+#Connect to DB using dplyr and create a tbl object
 con<-src_postgres(dbname="test_r", host="localhost", user="ufo")
 q <- "SELECT * FROM vegan_test.otu_test"
 otu_tbl<-tbl(con, sql(q))
 
+#Materialize tbl
 x <- as.data.frame(otu_tbl, stringAsFactors=F)
 rownames(x) <- x[,1]
 x <- x[,-1]
@@ -57,6 +73,32 @@ check <- TRUE
         add <- c(0, add)
 
 
+combN1 <- function(Z){
+    test <- function(X){
+        x <- rep(1,X-1) * (Z - X ) + 1
+        return(x)
+    }
+    test1 <- function(X){
+        y <- y1[X:Z]
+        return(y)
+    }
+    y1 <- seq(1,Z, by=1)
+    s <- unlist(lapply(X=Z:1, test))
+    s1 <- unlist(lapply(X=2:Z, test1))
+
+    return(list(s,s1))
+}
+
+system.time(
+comb <- combN1(90000)
+)
+
+
+
+library(gRbase)
+system.time(
+comb <- t(combnPrim(1:100, 2, simplify = T))
+)
 
     # Create all pairs to be compared
 # comb <- t(combnPrim(1:35000, 2, simplify = T))
@@ -64,27 +106,42 @@ check <- TRUE
 system.time(
 comb <- combN1(dim(x)[1])
 )
-length(x)
-dim(x)[1]
- outerM <- function(X){
-    #Define the function we will use for the outer product
+t <- combN1(5)
+out <- vector("numeric",length=length(comb[[1]])) + add[1]
+
+    b1 <- seq(0, floor(length(comb[[1]])/10^8) * 10^8, by=10^8)
+    b1 <- c(b1, b1[length(b1)] + (length(comb[[1]]) - b1[length(b1)]))
+    b1[1] <- 1
+    b2 <- b1-1
+    b2 <- b2[-1]
+    b2[length(b2)] <- b2[length(b2)]+1
+    b3<- cbind(b1[1:length(b1)-1],b2)
+
+outerM <- function(X){
+    outerM1 <- function(X){
+#Define the function we will use for the outer product
     FUN <- match.fun("!=")
     #Get first part of the list
-    y <- x[comb[,1],X]
+    y <- x[comb[[1]][b3[X,1]:b3[X,2]],1]
     #Get second part of the list
-    y1 <- x[comb[,2],X]
+    y1 <- x[comb[[2]][b3[X,1]:b3[X,2]],1]
     #Find identical
     y2 <- FUN(y,y1)
+    return(y2)
+}
+y2 <- unlist(lapply(1:dim(b3)[1], outerM1))
+
     y2 <- add[1 + X] * y2
     return(y2)
 }
-
+system.time(
 s <- lapply(1:ncol(x), outerM)
+    )
 dist <- Reduce('+', s)
-dist <- round((out + dist), 4)
-sp1 <- rownames(x)[comb[,1]]
+dist <- (out + dist)
+sp1 <- rownames(x)[comb[[1]]]
 #Get second part of the list
-sp2 <- rownames(x)[comb[,2]]
+sp2 <- rownames(x)[comb[[2]]]
 length(unique(sp1))
 
 test <- as.data.frame(cbind(sp1,sp2,dist), stringsAsFactors = F)
@@ -181,7 +238,7 @@ gc()
 return(X1)
 }
 comb <- unlist(mclapply(1:dim(b3)[1],Q=X,seri, mc.cores = 1))
-comb <- cbind(unlist(mclapply(1:dim(b3)[1],Q=Y,seri, mc.cores = 1)),comb)
+comb <- cbind(unlist(mclapply(1:dim(b3)[1],Q=Y,seri, mc.cores = 10)),comb)
 return(comb)
 }
 library(parallel)
@@ -205,20 +262,6 @@ X <- rep(y1, times = SPLIT)
 
 SPLIT <- 100
 
-combN1 <- function(Z){
-    test <- function(X){
-        x <- rep(1,X) * (Z - X ) + 1
-        return(x)
-    }
-    test1 <- function(X){
-        y <- y1[X:Z]
-        return(y)
-    }
-    y1 <- seq(1,Z, by=1)
-    s <- unlist(lapply(X=Z:1, test))
-    s <- cbind(s,unlist(lapply(X=1:Z, test1)))
-    return(s)
-}
 
 library(gRbase)
 system.time(
@@ -227,4 +270,5 @@ comb <- t(combnPrim(1:50000, 2, simplify = T))
 
 
 head(r)
+
 
