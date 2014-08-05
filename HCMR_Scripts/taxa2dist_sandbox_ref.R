@@ -6,11 +6,13 @@ library(RPostgreSQL)
 library(dplyr)
 
 #Read file
-x <- read.table(file="/Users/ufo/Dropbox/LW_hackaton/vegan/HMCR\ Scripts/050/aggSpecies_Percent.csv", sep = ",", quote = '"', header =T, row.names =1)
+#x <- read.table(file="/Users/ufo/Dropbox/LW_hackaton/vegan/HMCR\ Scripts/050/aggSpecies_Percent.csv", sep = ",", quote = '"', header =T, row.names =1)
 
 #Read file
-#x <- read.table(file="/megx/exchange/antonio/tmp/Rworkshop/HCMR_Scripts/050/aggSpecies_Percent.csv", sep = ",", quote = '"', header =T, row.names =1, stringsAsFactors = F)
+x <- read.table(file="/megx/exchange/antonio/tmp/Rworkshop/HCMR_Scripts/050/aggSpecies_Percent.csv", sep = ",", quote = '"', header =T, row.names =1, stringsAsFactors = F)
 
+
+x <- as.tbl(x)
 
 #Create DB connection
 drv <- dbDriver("PostgreSQL")
@@ -91,7 +93,7 @@ combN1 <- function(Z){
 }
 
 system.time(
-comb <- combN1(90000)
+comb <- combN1(dim(x)[1])
 )
 
 
@@ -117,22 +119,25 @@ out <- vector("numeric",length=length(comb[[1]])) + add[1]
     b2 <- b2[-1]
     b2[length(b2)] <- b2[length(b2)]+1
     b3<- cbind(b1[1:length(b1)-1],b2)
-
+pb <- txtProgressBar(min = 1, max = dim(b3)[1], style = 3 )
 outerM <- function(X){
+    cat("Crunching column", X, "\n")
     outerM1 <- function(X){
-#Define the function we will use for the outer product
-    FUN <- match.fun("!=")
-    #Get first part of the list
-    y <- x[comb[[1]][b3[X,1]:b3[X,2]],1]
-    #Get second part of the list
-    y1 <- x[comb[[2]][b3[X,1]:b3[X,2]],1]
-    #Find identical
-    y2 <- FUN(y,y1)
-    return(y2)
-}
-y2 <- unlist(lapply(1:dim(b3)[1], outerM1))
-
+        setTxtProgressBar(pb, X)
+        #Define the function we will use for the outer product
+        FUN <- match.fun("!=")
+        #Get first part of the list
+        y <- x[comb[[1]][b3[X,1]:b3[X,2]],1]
+        #Get second part of the list
+        y1 <- x[comb[[2]][b3[X,1]:b3[X,2]],1]
+        #Find identical
+        y2 <- FUN(y,y1)
+        return(y2)
+    }
+    
+    y2 <- unlist(lapply(1:dim(b3)[1], outerM1))    
     y2 <- add[1 + X] * y2
+    close(pb)
     return(y2)
 }
 system.time(
@@ -199,77 +204,4 @@ dbDisconnect(con)
     if (!check && any(out <= 0))
         warning("you used 'check=FALSE' and some distances are zero -- was this intended?")
     out
-
-#COMBINATORICS
-library(gRbase)
-system.time(
-comb <- t(combnPrim(1:35000, 2, simplify = T))
-)
-
-
-library(parallel)
-
-combN <- function(SPLIT){
-y1 <- seq(1,SPLIT, by=1)
-Y <- rep(y1, rep.int(SPLIT, SPLIT))
-X <- rep(y1, times = SPLIT)
-x <- seq(1,SPLIT^2, by=SPLIT+1)
-y <- seq(0,SPLIT^2, by=SPLIT)
-y <- y[-1]
-
-
-b <- eval(parse(text=paste("c(", paste(paste(x,':',y, sep=''),collapse = ','), ")")))
-
-
-if (length(b) < 10^8){
-    b3 <- cbind(1,length(b))
-}else{
-    b1 <- seq(0, floor(length(b)/10^8) * 10^8, by=10^8)
-    b1 <- c(b1, b1[length(b1)] + (length(b) - b1[length(b1)]))
-    b1[1] <- 1
-    b2 <- b1-1
-    b2 <- b2[-1]
-    b2[length(b2)] <- b2[length(b2)]+1
-    b3<- cbind(b1[1:length(b1)-1],b2)
-}
-
-seri <- function(P,Q){
-X1 <- Q[b[b3[P,1]:b3[P,2]]]
-gc()
-return(X1)
-}
-comb <- unlist(mclapply(1:dim(b3)[1],Q=X,seri, mc.cores = 1))
-comb <- cbind(unlist(mclapply(1:dim(b3)[1],Q=Y,seri, mc.cores = 10)),comb)
-return(comb)
-}
-library(parallel)
-
-rm(list = ls())
-gc()
-system.time(comb <- combN(50000)
-)
-
-SPLIT <- 5
-
-l <- 5:1
-for (i in 5:1){
-cat(i)
-rep(y1, rep.int(SPLIT, times = 5))
-}
-X <- rep(y1, times = SPLIT)
-
-
-
-
-SPLIT <- 100
-
-
-library(gRbase)
-system.time(
-comb <- t(combnPrim(1:50000, 2, simplify = T))
-)
-
-
-head(r)
-
 
